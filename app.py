@@ -47,8 +47,7 @@ if uploaded_file:
                     "background-color: #fff59d" if val == "Moderate" else (
                     "background-color: #ffcccb" if val == "At Risk" else (
                     "background-color: #f44336; color: white" if val == "Critical" else ""))
-        , subset=["Risk Level"]
-    ))
+        , subset=["Risk Level"]))
 else:
     st.info("👈 Upload your batch file to begin. You can download a sample file below.")
 
