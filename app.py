@@ -43,12 +43,13 @@ if uploaded_file:
 
     st.success("✅ File uploaded and processed successfully!")
     st.dataframe(df.style.applymap(
-        lambda val: "background-color: #90ee90" if val == "Excellent" else (
-                    "background-color: #fff59d" if val == "Moderate" else (
-                    "background-color: #ffcccb" if val == "At Risk" else (
-                    "background-color: #f44336; color: white" if val == "Critical" else "")
-        , subset=["Risk Level"]))
-else:
+        lambda val: (
+            "background-color: #90ee90" if val == "Excellent" else
+            "background-color: #fff59d" if val == "Moderate" else
+            "background-color: #ffcccb" if val == "At Risk" else
+            "background-color: #f44336; color: white" if val == "Critical" else ""
+        )
+    , subset=["Risk Level"]))
     st.info("👈 Upload your batch file to begin. You can download a sample file below.")
 
     sample_data = pd.DataFrame({
